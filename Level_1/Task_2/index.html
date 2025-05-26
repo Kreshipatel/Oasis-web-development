@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>John Doe | Web Developer</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ───────── NAVBAR ───────── -->
+  <header class="navbar">
+    <div class="brand">Kreshi</div>
+
+    <!-- Hamburger for mobile -->
+    <input type="checkbox" id="nav-toggle" class="nav-toggle" />
+    <label for="nav-toggle" class="hamburger">
+      <span></span><span></span><span></span>
+    </label>
+
+    <nav>
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+      <!-- dark-mode switch -->
+      <label class="switch">
+        <input type="checkbox" id="mode">
+        <span class="slider"></span>
+      </label>
+    </nav>
+  </header>
+
+  <!-- ───────── HERO ───────── -->
+  <section class="hero" id="home">
+    <div class="hero-inner">
+      <img src="./assets/user.jpg" alt="Profile photo" class="avatar" />
+      <h1>Hi, I'm <span class="accent">Kreshi Patel</span></h1>
+      <p class="sub">Front-End &amp; MERN Stack Developer</p>
+      <a href="#projects" class="btn primary">See My Work</a>
+      <a href="JohnDoe_CV.pdf" class="btn outline" download>Download CV</a>
+    </div>
+    <div class="hero-bg"></div>
+  </section>
+
+  <!-- ───────── ABOUT ───────── -->
+  <section class="about section" id="about">
+    <h2>About Me</h2>
+    <p>
+      I craft clean, responsive interfaces and love turning ideas into interactive
+      reality. When I'm not coding, you’ll find me exploring design trends or hiking
+      the nearest trail.
+    </p>
+  </section>
+
+  <!-- ───────── SKILLS ───────── -->
+  <section class="skills section" id="skills">
+    <h2>Skills</h2>
+    <div class="card-grid">
+      <div class="card"><h3>HTML5</h3></div>
+      <div class="card"><h3>CSS3 / Sass</h3></div>
+      <div class="card"><h3>JavaScript (ES6+)</h3></div>
+      <div class="card"><h3>React & Redux</h3></div>
+      <div class="card"><h3>Node.js &amp; Express</h3></div>
+      <div class="card"><h3>MongoDB</h3></div>
+    </div>
+  </section>
+
+  <!-- ───────── PROJECTS ───────── -->
+  <section class="projects section" id="projects">
+    <h2>Featured Projects</h2>
+
+    <article class="project">
+      <img src="./assets/REMS.jpg" alt="Project screenshot">
+      <div class="project-info">
+        <h3>Real Estate Management</h3>
+        <p>Dashboard-driven app built with PHP, SQL & Bootstrap, enabling builders
+        and agents to upload, search and analyse properties in real time.</p>
+        <a href="#" class="btn small">Live&nbsp;Demo</a>
+        <a href="#" class="btn small outline">Code</a>
+      </div>
+    </article>
+
+    <article class="project">
+      <img src="./assets/feedback.jpg" alt="Project screenshot">
+      <div class="project-info">
+        <h3>EduFeed</h3>
+        <p>A college feedback platform (Django) with secure auth, analytics &
+        role-based access, currently used by 300+ students.</p>
+        <a href="#" class="btn small">Live&nbsp;Demo</a>
+        <a href="#" class="btn small outline">Code</a>
+      </div>
+    </article>
+  </section>
+
+  <!-- ───────── CONTACT ───────── -->
+  <section class="contact section" id="contact">
+    <h2>Get in Touch</h2>
+    <form action="https://formspree.io/f/your-id" method="POST" class="contact-form">
+      <input type="text" name="name" placeholder="Your name" required>
+      <input type="email" name="_replyto" placeholder="Your email" required>
+      <textarea name="message" rows="5" placeholder="Your message"></textarea>
+      <button type="submit" class="btn primary">Send Message</button>
+    </form>
+  </section>
+
+  <!-- ───────── FOOTER ───────── -->
+  <footer class="footer">
+    <p>&copy; 2025 John Doe • Made with <span>❤</span></p>
+  </footer>
+
+  <!-- ───────── DARK-MODE SCRIPT (tiny & inline) ───────── -->
+  <script>
+    const modeSwitch=document.getElementById('mode');
+    modeSwitch.addEventListener('change',()=> {
+      document.documentElement.dataset.theme = modeSwitch.checked ? 'dark' : 'light';
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,376 @@
+/* ───── CSS RESET ───── */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box
+}
+
+html {
+    scroll-behavior: smooth;
+    font-size: 16px
+}
+
+body {
+    font-family: "Inter", sans-serif;
+    color: var(--txt);
+    background: var(--bg)
+}
+
+img {
+    display: block;
+    max-width: 100%
+}
+
+/* ───── THEME VARIABLES ───── */
+:root {
+    --bg: #ffffff;
+    --card: #f4f4f4;
+    --txt: #222;
+    --accent: #4b6cb7;
+    --bg-alt: #fafafa;
+    --shadow: 0 4px 10px rgba(0, 0, 0, .05);
+}
+
+:root[data-theme="dark"] {
+    --bg: #121212;
+    --card: #1e1e1e;
+    --txt: #eaeaea;
+    --accent: #7ba3ff;
+    --bg-alt: #181818;
+    --shadow: 0 4px 10px rgba(0, 0, 0, .7);
+}
+
+/* ───── UTILITIES ───── */
+.section {
+    padding: 5rem 1.5rem;
+    text-align: center
+}
+
+h2 {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    color: var(--accent)
+}
+
+.btn {
+    display: inline-block;
+    padding: .75rem 1.5rem;
+    border-radius: 30px;
+    font-size: .9rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: .3s
+}
+
+.primary {
+    background: var(--accent);
+    color: #fff
+}
+
+.outline {
+    border: 2px solid var(--accent);
+    color: var(--accent);
+    background: none
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow)
+}
+
+.small {
+    padding: .5rem 1rem;
+    font-size: .8rem
+}
+
+/* ───── NAVBAR ───── */
+.navbar {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: var(--bg);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: .8rem 1.5rem;
+    box-shadow: 0 1px 5px rgba(0, 0, 0, .05)
+}
+
+.brand {
+    font-weight: 800;
+    font-size: 1.2rem;
+    letter-spacing: .5px
+}
+
+.brand span {
+    color: var(--accent)
+}
+
+nav {
+    display: flex;
+    gap: 1.5rem;
+    align-items: center
+}
+
+nav a {
+    color: var(--txt);
+    text-decoration: none;
+    font-weight: 500;
+    position: relative
+}
+
+nav a::after {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -4px;
+    left: 0;
+    background: var(--accent);
+    transition: .3s
+}
+
+nav a:hover::after {
+    width: 100%
+}
+
+/* burger & toggle */
+.nav-toggle {
+    display: none
+}
+
+.hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 4px;
+    cursor: pointer
+}
+
+.hamburger span {
+    width: 25px;
+    height: 3px;
+    background: var(--txt);
+    transition: .3s
+}
+
+/* dark-mode switch */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 42px;
+    height: 22px
+}
+
+.switch input {
+    display: none
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    inset: 0;
+    background: #bbb;
+    border-radius: 34px
+}
+
+.slider::before {
+    content: "";
+    position: absolute;
+    height: 18px;
+    width: 18px;
+    left: 2px;
+    bottom: 2px;
+    background: #fff;
+    border-radius: 50%;
+    transition: .4s
+}
+
+input:checked+.slider {
+    background: var(--accent)
+}
+
+input:checked+.slider::before {
+    transform: translateX(20px)
+}
+
+/* ───── HERO ───── */
+.hero {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    position: relative;
+    overflow: hidden;
+    text-align: center
+}
+
+.hero-bg {
+    position: absolute;
+    inset: 0;
+    background:
+        linear-gradient(135deg, rgba(75, 108, 183, 0.3), rgba(24, 24, 24, 0.1));
+    z-index: -1
+}
+
+.hero-inner {
+    max-width: 700px;
+    padding: 0 1rem
+}
+
+.avatar {
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    border: 5px solid var(--accent);
+    margin: 0 auto 1.5rem
+}
+
+h1 {
+    font-size: 2.8rem;
+    margin-bottom: .5rem
+}
+
+.accent {
+    color: var(--accent)
+}
+
+.sub {
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+    color: var(--txt)
+}
+
+.hero .btn {
+    margin: .25rem
+}
+
+/* ───── SKILLS & CARDS ───── */
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1.5rem
+}
+
+.card {
+    background: var(--card);
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: var(--shadow);
+    transition: .3s
+}
+
+.card:hover {
+    transform: translateY(-6px) scale(1.02)
+}
+
+/* ───── PROJECTS ───── */
+.project {
+    display: flex;
+    flex-direction: column;
+    background: var(--card);
+    border-radius: 12px;
+    overflow: hidden;
+    margin-bottom: 2.5rem;
+    box-shadow: var(--shadow);
+    transition: .3s
+}
+
+.project:hover {
+    transform: translateY(-6px)
+}
+
+.project-info {
+    padding: 1.5rem;
+    text-align: left
+}
+
+.project-info h3 {
+    color: var(--accent);
+    margin-bottom: .5rem
+}
+
+/* ───── CONTACT ───── */
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    max-width: 600px;
+    margin: 2rem auto
+}
+
+.contact-form input,
+.contact-form textarea {
+    padding: .9rem 1rem;
+    border: 2px solid var(--bg-alt);
+    border-radius: 8px;
+    background: var(--bg-alt);
+    color: var(--txt);
+    font: inherit
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    outline: none;
+    border-color: var(--accent)
+}
+
+/* ───── FOOTER ───── */
+.footer {
+    background: var(--bg-alt);
+    padding: 1rem;
+    text-align: center;
+    font-size: .85rem
+}
+
+.footer span {
+    color: var(--accent)
+}
+
+/* ───── RESPONSIVE ───── */
+@media (max-width:768px) {
+
+    /* burger appears */
+    .hamburger {
+        display: flex
+    }
+
+    nav {
+        position: fixed;
+        inset: 0 auto 0 0;
+        width: 70%;
+        max-width: 260px;
+        flex-direction: column;
+        background: var(--bg);
+        padding: 4rem 2rem;
+        transform: translateX(-100%);
+        transition: .4s
+    }
+
+    .nav-toggle:checked~nav {
+        transform: translateX(0)
+    }
+
+    nav a {
+        font-size: 1.1rem;
+        padding: .5rem 0
+    }
+
+    /* burger animation */
+    .nav-toggle:checked+.hamburger span:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px)
+    }
+
+    .nav-toggle:checked+.hamburger span:nth-child(2) {
+        opacity: 0
+    }
+
+    .nav-toggle:checked+.hamburger span:nth-child(3) {
+        transform: rotate(-45deg) translate(7px, -6px)
+    }
+
+    /* projects column */
+    .project {
+        margin: 1.5rem 0
+    }
+}
